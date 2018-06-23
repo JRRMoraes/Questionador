@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="Questionador">
+
+<head>
+	<title>Questionador - Administração</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="/Questionador/" />
+
+	<script type="text/javascript" src="terceiros/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="terceiros/angular.js"></script>
+	<script type="text/javascript" src="terceiros/angular-route.js"></script>
+
+	<script type="text/javascript" src="terceiros/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="terceiros/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="terceiros/bootstrap/css/bootstrap-responsive.min.css" />
+
+	<script type="text/jscript" src="js/principal.js"></script>
+	<script type="text/jscript" src="js/diretivas.js"></script>
+	<script type="text/jscript" src="js/controles/controlePublico.js"></script>
+	<script type="text/jscript" src="js/controles/controleAdministracao.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</head>
+
+<body>
+
+	<div class="row-fluid">
+		<div class="span3">
+			<a href="adminstracao/review" class="btn btn-default btn-lg span12">Avaliação da Review</a>
+			<br/>
+			<a href="adminstracao/colaborador" class="btn btn-default btn-lg span12">Colaborador</a>
+			<a href="adminstracao/evento" class="btn btn-default btn-lg span12">Evento</a>
+			<a href="adminstracao/pessoa" class="btn btn-default btn-lg span12">Pessoa</a>
+			<a href="adminstracao/questionario" class="btn btn-default btn-lg span12">Questionário</a>
+			<a href="adminstracao/usuario" class="btn btn-default btn-lg span12">Usuário</a>
+		</div>
+
+		<div class="span9">
+			<ng-view>Carregando...</ng-view>
+		</div>
+	</div>
+
+	<rodape></rodape>
+
+</body>
+
+</html>

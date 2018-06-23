@@ -1,0 +1,19 @@
+<cabecalho classe="publico" subtitulo=""></cabecalho>
+
+<div>
+	<a href="review" class="btn btn-default btn-lg span12">Avaliação da Review</a>
+	<br/>
+</div>
+
+
+<div>
+	<h3>Eventos públicos:</h3>
+
+	<div id="ListaEventosPublicos">
+		<div ng-repeat="Evento in bdEVENTOS">
+			<a class="btn btn-large btn-block" href="evento/{{Evento.id}}">
+			{{ Evento.id }} # {{ Evento.nome }}  <!--{{ Evento.DtEventoInicio : date: 'medium' }}-->
+		</a>
+		</div>
+	</div>
+</div>

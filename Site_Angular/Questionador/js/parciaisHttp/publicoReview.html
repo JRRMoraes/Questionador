@@ -1,0 +1,97 @@
+<div id="avaliacaoReview">
+
+	<form name="formAvaliacaoReview" class="form-horizontal container">
+
+		<div class="control-group row-fluid">
+			<!--
+			<div class="span2">
+				<strong>ID:</strong>
+				<br />
+				<input type="text" ng-model="bdREVIEW.id" disabled class="input-small" />
+			</div>
+
+			<div class="span4">
+				<strong>Sistema/Versão:</strong>
+				<input type="text" ng-model="bdREVIEW.projeto" class="input-block-level" />
+			</div>
+-->
+
+			<button type="submit" ng-click="SalvarReview()" ng-disabled="formAvaliacaoReview.$invalid" class="btn btn-primary span2 offset1">Salvar</button>
+
+			<a type="button" ng-href="/" class="btn btn-default span2">Cancelar</a>
+		</div>
+
+
+		<div class="control-group row-fluid">
+			<strong>Nome:</strong>
+			<input type="text" ng-model="bdREVIEW.colaboradorNome" class="input-block-level" />
+		</div>
+
+		<editorTexto name="colaboradorNome" campo="bdREVIEW.colaboradorNome">Nome: 22</editorTexto>
+
+		<div class="control-group row-fluid">
+			<strong>Login:</strong>
+			<input type="text" ng-model="bdREVIEW.colaboradorLogin" class="input-block-level" />
+		</div>
+
+
+		<!--<div class="control-group row-fluid">
+			<strong>Data:</strong>
+			<input type="text" ng-model="bdREVIEW.data" />
+		</div>-->
+
+
+		<h3 class="control-group row-fluid">Sobre a Review</h3>
+
+
+		<div>
+			<input type="checkbox" ng-model="bdREVIEW.reviewAtendeuSuasExpectativas" /><strong>A review atendeu às suas expectativas?</strong>
+		</div>
+
+
+		<div class="control-group row-fluid">
+			<strong class="span6">Em caso de resposta negativa, por quê?</strong>
+			<input type="text" ng-model="bdREVIEW.textoExpectativasDaReview" class="input-block-level" />
+		</div>
+
+
+		<div>
+			<h3>Sobre a Estrutura da Review</h3>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.aproveitamentoDaReview" nome="aproveitamentoDaReview">Como você avalia o seu aproveitamento?
+			</radioSelecaoExcelenteARuim>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.apresentacaoDaReview" nome="apresentacaoDaReview">Como você avalia a apresentação da review?
+			</radioSelecaoExcelenteARuim>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.organizacaoDaReview" nome="organizacaoDaReview">Avaliação quanto à organização da review?
+			</radioSelecaoExcelenteARuim>
+		</div>
+
+
+		<div>
+			<h3>Sobre o Instrutor</h3>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.conhecimentoDoInstrutor" nome="conhecimentoDoInstrutor">Avaliação do colaborador ao conhecimento do instrutor:
+			</radioSelecaoExcelenteARuim>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.comunicacaoDoInstrutor" nome="comunicacaoDoInstrutor">Avaliação do desembaraço e comunicação do instrutor:
+			</radioSelecaoExcelenteARuim>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.explicacoesObjetivas" nome="explicacoesObjetivas">Avaliação sobre as explicações objetivas:
+			</radioSelecaoExcelenteARuim>
+
+			<radioSelecaoExcelenteARuim campo="bdREVIEW.receptividadeDoTimeAsCriticas" nome="receptividadeDoTimeAsCriticasXXX">Receptividade do time em relação às críticas levantadas XXXX??
+			</radioSelecaoExcelenteARuim>
+		</div>
+
+
+		<div>
+			<h3>Comentários e Sugestões</h3>
+			<div class="control-group row-fluid">
+				<input type="text" ng-model="bdREVIEW.comentarios" class="input-block-level" />
+			</div>
+		</div>
+
+	</form>
+</div>

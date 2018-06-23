@@ -1,0 +1,16 @@
+<cabecalho classe="administracao" subtitulo="Administração"></cabecalho>
+
+
+
+
+<div>
+	<h3>Eventos públicos:</h3>
+
+	<div id="ListaEventosPublicos">
+		<div ng-repeat="Evento in bdEVENTOS">
+			{{ Evento.id }} # {{ Evento.nome }} - {{ Evento.dataCriacao : date: 'medium' }}
+			<a class="btn btn-large btn-block" href="administacao/evento/{{Evento.id}}/total">Total</a>
+			<a class="btn btn-large btn-block" href="administacao/evento/{{Evento.id}}/lista">Lista</a>
+		</div>
+	</div>
+</div>
