@@ -10,13 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 public class Questionario implements Serializable, IEntidade<Long> {
 
 	private static final long serialVersionUID = 3497546525344325646L;
@@ -33,4 +29,44 @@ public class Questionario implements Serializable, IEntidade<Long> {
 
 	@OneToMany(mappedBy = "questionario")
 	private List<Questao> questoes;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public Integer getIndice() {
+		return indice;
+	}
+
+
+	public void setIndice(Integer indice) {
+		this.indice = indice;
+	}
+
+
+	public List<Questao> getQuestoes() {
+		return questoes;
+	}
+
+
+	public void setQuestoes(List<Questao> questoes) {
+		this.questoes = questoes;
+	}
 }

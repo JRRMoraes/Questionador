@@ -12,13 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 public class EventoPresenca implements Serializable, IEntidade<Long> {
 
 	private static final long serialVersionUID = 3474178056447622188L;
@@ -36,4 +32,44 @@ public class EventoPresenca implements Serializable, IEntidade<Long> {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+
+	public Espectador getEspectador() {
+		return espectador;
+	}
+
+
+	public void setEspectador(Espectador espectador) {
+		this.espectador = espectador;
+	}
+
+
+	public Calendar getData() {
+		return data;
+	}
+
+
+	public void setData(Calendar data) {
+		this.data = data;
+	}
 }

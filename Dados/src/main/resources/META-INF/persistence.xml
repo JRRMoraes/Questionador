@@ -6,7 +6,7 @@
 	version="2.0">
 
 	<!-- MYSQL -->
-	<persistence-unit name="questionador_mysql"
+	<persistence-unit name="questionador"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 

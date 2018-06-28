@@ -9,13 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 public class EventoQuestionario implements Serializable, IEntidade<Long> {
 
 	private static final long serialVersionUID = 4664830807376992987L;
@@ -32,4 +28,44 @@ public class EventoQuestionario implements Serializable, IEntidade<Long> {
 	private Questionario questionario;
 
 	private Integer indice;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+
+	public Questionario getQuestionario() {
+		return questionario;
+	}
+
+
+	public void setQuestionario(Questionario questionario) {
+		this.questionario = questionario;
+	}
+
+
+	public Integer getIndice() {
+		return indice;
+	}
+
+
+	public void setIndice(Integer indice) {
+		this.indice = indice;
+	}
 }

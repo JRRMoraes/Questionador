@@ -15,11 +15,11 @@ public class DAOBase<E extends IEntidade<I>, I> {
 
 	public DAOBase(Class<E> classe) {
 		_classe = classe;
-		_gerenciador = Conexao.NovoGerenciador();
+		_gerenciador = Conexao.obterGerenciador();
 	}
 
 
-	protected EntityManager getGerenciador() {
+	protected EntityManager obterGerenciador() {
 		return _gerenciador;
 	}
 
@@ -43,6 +43,6 @@ public class DAOBase<E extends IEntidade<I>, I> {
 
 
 	public TypedQuery<E> internoCriarQuery(String query) {
-		return getGerenciador().createQuery(query, _classe);
+		return obterGerenciador().createQuery(query, _classe);
 	}
 }

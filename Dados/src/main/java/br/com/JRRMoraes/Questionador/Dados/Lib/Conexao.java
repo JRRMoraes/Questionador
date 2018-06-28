@@ -8,10 +8,15 @@ import javax.persistence.Persistence;
 
 public class Conexao {
 
-	private static EntityManagerFactory _fabrica = Persistence.createEntityManagerFactory("questionador_mysql");
+	private static EntityManagerFactory _fabrica = Conexao.instanciarFabrica();
 
 
-	public static EntityManager NovoGerenciador() {
+	private static EntityManagerFactory instanciarFabrica() {
+		return Persistence.createEntityManagerFactory("questionador");
+	}
+
+
+	public static EntityManager obterGerenciador() {
 		EntityManager __gerenciador = _fabrica.createEntityManager();
 		return __gerenciador;
 	}

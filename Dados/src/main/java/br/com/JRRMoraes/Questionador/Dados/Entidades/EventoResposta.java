@@ -10,13 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 public class EventoResposta implements Serializable, IEntidade<Long> {
 
 	private static final long serialVersionUID = -6172007447758666581L;
@@ -41,4 +37,74 @@ public class EventoResposta implements Serializable, IEntidade<Long> {
 	private String respostaLonga;
 
 	private char respostaCurta;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+
+
+	public Questionario getQuestionario() {
+		return questionario;
+	}
+
+
+	public void setQuestionario(Questionario questionario) {
+		this.questionario = questionario;
+	}
+
+
+	public Questao getQuestao() {
+		return questao;
+	}
+
+
+	public void setQuestao(Questao questao) {
+		this.questao = questao;
+	}
+
+
+	public Espectador getEspectador() {
+		return espectador;
+	}
+
+
+	public void setEspectador(Espectador espectador) {
+		this.espectador = espectador;
+	}
+
+
+	public String getRespostaLonga() {
+		return respostaLonga;
+	}
+
+
+	public void setRespostaLonga(String respostaLonga) {
+		this.respostaLonga = respostaLonga;
+	}
+
+
+	public char getRespostaCurta() {
+		return respostaCurta;
+	}
+
+
+	public void setRespostaCurta(char respostaCurta) {
+		this.respostaCurta = respostaCurta;
+	}
 }

@@ -8,13 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
-import lombok.Getter;
-import lombok.Setter;
 
 
 @Entity
-@Getter
-@Setter
 public class Projeto implements Serializable, IEntidade<Long> {
 
 	private static final long serialVersionUID = -930433207657683940L;
@@ -26,4 +22,30 @@ public class Projeto implements Serializable, IEntidade<Long> {
 
 	@Column(length = 20, nullable = false, unique = true)
 	private String nome;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Projeto [id=" + id + ", nome=" + nome + "]";
+	}
 }

@@ -5,10 +5,10 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<!-- MYSQL -->
+	<!-- H2 -->
 	<persistence-unit name="questionador"
-		transaction-type="JTA">
-		<jta-data-source>java:jboss/datasources/questionador</jta-data-source>
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<class>br.com.JRRMoraes.Questionador.Dados.Entidades.Espectador</class>
 		<class>br.com.JRRMoraes.Questionador.Dados.Entidades.Evento</class>
@@ -24,14 +24,13 @@
 		<class>br.com.JRRMoraes.Questionador.Dados.Entidades.Usuario</class>
 
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/questionador" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="abc123!" />
-			<property name="hibernate.transaction.jta.platform"
-				value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:teste_questionador" />
+			<!-- <property name="javax.persistence.jdbc.url" -->
+			<!-- value="jdbc:h2:mem:test;INIT=RUNSCRIPT FROM 'classpath:create.sql'\;RUNSCRIPT 
+				FROM 'classpath:data.sql'" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
