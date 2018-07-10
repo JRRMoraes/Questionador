@@ -51,6 +51,20 @@ public class TesteProjetoBeanCRUD {
 
 
 	@Test
+	public void consomeConsultarPorIdExistenteRetornaSucesso() {
+		Projeto __projetoConsultarPorIdNulo = _projetoBean.consultarPorId(98l);
+		assertNull("Projeto não é nulo", __projetoConsultarPorIdNulo);
+		Projeto __projetoNovo = _projetoBean.novo();
+		__projetoNovo.setId(98l);
+		__projetoNovo.setNome("Teste ID 98");
+		assertTrue("Falha ao salvar", _projetoBean.salvar(__projetoNovo));
+		assertEquals("Id é diferente de 98", (Long) 98l, __projetoNovo.getId());
+		Projeto __projetoConsultarPorIdExistente = _projetoBean.consultarPorId(98l);
+		assertNotNull("Projeto é nulo", __projetoConsultarPorIdExistente);
+	}
+
+
+	@Test
 	public void consomeNovoESalvarSemIdEhSucesso() {
 		Projeto __projetoConsultarPorId = _projetoBean.consultarPorId(1l);
 		assertNull("__projetoConsultarPorId não é nulo", __projetoConsultarPorId);

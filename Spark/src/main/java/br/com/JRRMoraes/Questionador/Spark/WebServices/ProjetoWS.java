@@ -3,8 +3,10 @@ package br.com.JRRMoraes.Questionador.Spark.WebServices;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
+import static spark.Spark.put;
 import br.com.JRRMoraes.Questionador.Dados.Beans.ProjetoBean;
 import br.com.JRRMoraes.Questionador.Dados.Entidades.Projeto;
+import br.com.JRRMoraes.Questionador.Spark.Lib.UtilCaminho;
 import br.com.JRRMoraes.Questionador.Spark.Lib.UtilRequisicaoEResposta;
 import spark.Request;
 import spark.Response;
@@ -13,37 +15,49 @@ import spark.Route;
 
 public class ProjetoWS {
 
-	public static void ImporCaminhos() {
-		get(ProjetoWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_NOVO, ProjetoWS.novo);
-		get(ProjetoWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_ID, ProjetoWS.consultarPorId);
-		get(ProjetoWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_TODOS, ProjetoWS.consultarTodos);
-		post(ProjetoWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_SALVAR, ProjetoWS.salvar);
-	}
+	private final static String CAMINHO_RAIZ = "/projetos";
 
+	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
 	private static ProjetoBean _projetoBean = new ProjetoBean();
 
-	protected final static String CAMINHO_RAIZ = "/projeto/";
+
+	public static void imporCaminhos() {
+		get(CAMINHO_RAIZ, rotaConsultaRaiz);
+		get(CAMINHO_ID, rotaConsultaPorId);
+		post(CAMINHO_RAIZ, rotaSalva);
+		put(CAMINHO_ID, rotaSalva);
+	}
 
 
-	protected static Route novo = (Request requisicao, Response resposta) -> {
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _projetoBean.novo());
+	private static Route rotaConsultaRaiz = (Request requisicao, Response resposta) -> {
+		switch (UtilCaminho.parametroFuncao(requisicao)) {
+			case UtilCaminho.FUNCAO_TODOS:
+				return consultarTodos(requisicao, resposta);
+			case UtilCaminho.FUNCAO_NOVO:
+				return consultarNovo(requisicao, resposta);
+		}
+		return UtilRequisicaoEResposta.naoEncontrado(resposta);
 	};
 
 
-	protected static Route consultarPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilRequisicaoEResposta.ParametroID(requisicao);
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _projetoBean.consultarPorId(__id));
+	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
+		long __id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.consultarPorId(__id));
 	};
 
-
-	protected static Route consultarTodos = (Request requisicao, Response resposta) -> {
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _projetoBean.consultarTodos());
-	};
-
-
-	public static Route salvar = (Request requisicao, Response resposta) -> {
+	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
 		Projeto __projeto = _projetoBean.novo();
 		return _projetoBean.salvar(__projeto);
 	};
+
+
+	private static String consultarNovo(Request requisicao, Response resposta) {
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.novo());
+	}
+
+
+	private static String consultarTodos(Request requisicao, Response resposta) {
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.consultarTodos());
+	}
 }

@@ -38,23 +38,12 @@ APLICATIVO.config(
 
 APLICATIVO.run(
 	function ($rootScope) {
-		$rootScope.UrlPublico = function (pUrl) {
-			return "" + pUrl;
-		}
-
-
-		$rootScope.UrlAdministracao = function (pUrl) {
-			return "administracao/" + pUrl;
-		}
-
-
-		$rootScope.PublicoWS = function (pUrl) {
+		$rootScope.Servico = function (pUrl) {
 			return "http://localhost:9999/" + pUrl;
 		}
 
-
-		$rootScope.AdministracaoWS = function (pUrl) {
-			return "http://localhost:9999/AdministracaoWS/" + pUrl;
+		$rootScope.ServicoFuncao = function (pUrl, pFuncao) {
+			return "http://localhost:9999/" + pUrl + "?funcao=" + pFuncao;
 		}
 
 

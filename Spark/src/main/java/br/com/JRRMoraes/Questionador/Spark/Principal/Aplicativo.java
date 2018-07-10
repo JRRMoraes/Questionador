@@ -4,9 +4,13 @@ package br.com.JRRMoraes.Questionador.Spark.Principal;
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 import static spark.debug.DebugScreen.enableDebugScreen;
-import br.com.JRRMoraes.Questionador.Spark.Lib.Filtros;
+import br.com.JRRMoraes.Questionador.Spark.Lib.Ajustes;
+import br.com.JRRMoraes.Questionador.Spark.WebServices.EspectadorWS;
 import br.com.JRRMoraes.Questionador.Spark.WebServices.EventoWS;
+import br.com.JRRMoraes.Questionador.Spark.WebServices.ProjetoVersaoWS;
 import br.com.JRRMoraes.Questionador.Spark.WebServices.ProjetoWS;
+import br.com.JRRMoraes.Questionador.Spark.WebServices.ReviewWS;
+import br.com.JRRMoraes.Questionador.Spark.WebServices.UsuarioWS;
 
 
 public class Aplicativo {
@@ -17,12 +21,16 @@ public class Aplicativo {
 		staticFiles.expireTime(600L);
 		enableDebugScreen();
 
-		Filtros.ImporFiltrosAnteriores();
+		Ajustes.imporAjustesIniciais();
 
-		EventoWS.ImporCaminhos();
-		ProjetoWS.ImporCaminhos();
+		EspectadorWS.ImporCaminhos();
+		EventoWS.imporCaminhos();
+		ProjetoVersaoWS.ImporCaminhos();
+		ProjetoWS.imporCaminhos();
+		ReviewWS.imporCaminhos();
+		UsuarioWS.imporCaminhos();
 		// get("*", ViewUtil.notFound);
 
-		Filtros.ImporFiltrosFinais();
+		Ajustes.imporAjustesFinais();
 	}
 }

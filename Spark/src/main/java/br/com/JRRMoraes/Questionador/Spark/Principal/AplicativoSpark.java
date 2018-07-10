@@ -4,7 +4,7 @@ package br.com.JRRMoraes.Questionador.Spark.Principal;
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 import static spark.debug.DebugScreen.enableDebugScreen;
-import br.com.JRRMoraes.Questionador.Spark.Lib.Filtros;
+import br.com.JRRMoraes.Questionador.Spark.Lib.Ajustes;
 import br.com.JRRMoraes.Questionador.Spark.WebServices.EventoWS;
 import br.com.JRRMoraes.Questionador.Spark.WebServices.ProjetoWS;
 import spark.resource.Resource;
@@ -28,13 +28,13 @@ public class AplicativoSpark implements SparkApplication {
 		staticFiles.expireTime(600L);
 		enableDebugScreen();
 
-		Filtros.ImporFiltrosAnteriores();
+		Ajustes.imporAjustesIniciais();
 
-		EventoWS.ImporCaminhos();
-		ProjetoWS.ImporCaminhos();
+		EventoWS.imporCaminhos();
+		ProjetoWS.imporCaminhos();
 		// get("*", ViewUtil.notFound);
 
-		Filtros.ImporFiltrosFinais();
+		Ajustes.imporAjustesFinais();
 	}
 
 

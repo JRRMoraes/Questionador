@@ -3,8 +3,10 @@ package br.com.JRRMoraes.Questionador.Spark.WebServices;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
+import static spark.Spark.put;
 import br.com.JRRMoraes.Questionador.Dados.Beans.EspectadorBean;
 import br.com.JRRMoraes.Questionador.Dados.Entidades.Espectador;
+import br.com.JRRMoraes.Questionador.Spark.Lib.UtilCaminho;
 import br.com.JRRMoraes.Questionador.Spark.Lib.UtilRequisicaoEResposta;
 import spark.Request;
 import spark.Response;
@@ -13,37 +15,57 @@ import spark.Route;
 
 public class EspectadorWS {
 
-	public static void ImporCaminhos() {
-		get(EspectadorWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_NOVO, EspectadorWS.novo);
-		get(EspectadorWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_ID, EspectadorWS.consultarPorId);
-		get(EspectadorWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_TODOS, EspectadorWS.consultarTodos);
-		post(EspectadorWS.CAMINHO_RAIZ + UtilRequisicaoEResposta.PARAM_SALVAR, EspectadorWS.salvar);
-	}
+	private final static String CAMINHO_RAIZ = "/espectadores/";
 
+	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
 	private static EspectadorBean _espectadorBean = new EspectadorBean();
 
-	public final static String CAMINHO_RAIZ = "/espectador/";
+
+	public static void ImporCaminhos() {
+		get(CAMINHO_RAIZ, rotaConsultaRaiz);
+		get(CAMINHO_ID, rotaConsultaPorId);
+		post(CAMINHO_RAIZ, rotaSalva);
+		put(CAMINHO_ID, rotaSalva);
+	}
 
 
-	public static Route novo = (Request requisicao, Response resposta) -> {
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _espectadorBean.novo());
+	private static Route rotaConsultaRaiz = (Request requisicao, Response resposta) -> {
+		switch (UtilCaminho.parametroFuncao(requisicao)) {
+			case UtilCaminho.FUNCAO_TODOS:
+				return consultarTodos(requisicao, resposta);
+			case UtilCaminho.FUNCAO_NOVO:
+				return consultarNovo(requisicao, resposta);
+			case "abertos":
+				return consultarAbertos(requisicao, resposta);
+		}
+		return UtilRequisicaoEResposta.naoEncontrado(resposta);
 	};
 
 
-	public static Route consultarPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilRequisicaoEResposta.ParametroID(requisicao);
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _espectadorBean.consultarPorId(__id));
+	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
+		long __id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarPorId(__id));
 	};
 
 
-	public static Route consultarTodos = (Request requisicao, Response resposta) -> {
-		return UtilRequisicaoEResposta.enviarJsonNaResposta(resposta, _espectadorBean.consultarTodos());
-	};
-
-
-	public static Route salvar = (Request requisicao, Response resposta) -> {
+	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
 		Espectador __espectador = _espectadorBean.novo();
 		return _espectadorBean.salvar(__espectador);
 	};
+
+
+	private static String consultarNovo(Request requisicao, Response resposta) {
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.novo());
+	}
+
+
+	private static String consultarTodos(Request requisicao, Response resposta) {
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarTodos());
+	}
+
+
+	private static String consultarAbertos(Request requisicao, Response resposta) {
+		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarTodos());
+	}
 }
