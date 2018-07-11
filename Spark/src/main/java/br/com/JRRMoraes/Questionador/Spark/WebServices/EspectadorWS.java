@@ -45,7 +45,7 @@ public class EspectadorWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarPorId(__id));
 	};
 
 
@@ -56,16 +56,16 @@ public class EspectadorWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarTodos());
 	}
 
 
 	private static String consultarAbertos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _espectadorBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarTodos());
 	}
 }

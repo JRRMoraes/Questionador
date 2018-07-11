@@ -43,7 +43,7 @@ public class ReviewWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _reviewBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.consultarPorId(__id));
 	};
 
 
@@ -54,11 +54,11 @@ public class ReviewWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _reviewBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _reviewBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.consultarTodos());
 	}
 }

@@ -43,7 +43,7 @@ public class ProjetoWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.consultarPorId(__id));
 	};
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
@@ -53,11 +53,11 @@ public class ProjetoWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.consultarTodos());
 	}
 }

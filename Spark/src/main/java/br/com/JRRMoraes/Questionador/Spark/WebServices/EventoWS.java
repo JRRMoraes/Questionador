@@ -45,7 +45,7 @@ public class EventoWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _eventoBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _eventoBean.consultarPorId(__id));
 	};
 
 
@@ -56,16 +56,16 @@ public class EventoWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _eventoBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _eventoBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _eventoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _eventoBean.consultarTodos());
 	}
 
 
 	private static String consultarAbertos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _eventoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _eventoBean.consultarTodos());
 	}
 }

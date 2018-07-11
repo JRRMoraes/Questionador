@@ -43,7 +43,7 @@ public class ProjetoVersaoWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoVersaoBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.consultarPorId(__id));
 	};
 
 
@@ -54,11 +54,11 @@ public class ProjetoVersaoWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoVersaoBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _projetoVersaoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.consultarTodos());
 	}
 }

@@ -7,7 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import com.google.gson.Gson;
 import spark.utils.IOUtils;
 
 
@@ -25,7 +24,12 @@ public class RespostaDoTeste {
 
 
 	public Map<String, String> json() {
-		return new Gson().fromJson(corpo, HashMap.class);
+		return Conversor.jsonParaEntidade(HashMap.class, corpo);
+	}
+
+
+	public <E> E jsonParaEntidade(Class<E> classe) {
+		return Conversor.jsonParaEntidade(classe, corpo);
 	}
 
 

@@ -45,7 +45,7 @@ public class UsuarioWS {
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
 		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _usuarioBean.consultarPorId(__id));
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.consultarPorId(__id));
 	};
 
 
@@ -56,12 +56,12 @@ public class UsuarioWS {
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _usuarioBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.responderSucesso(resposta, _usuarioBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.consultarTodos());
 	}
 
 
@@ -69,8 +69,6 @@ public class UsuarioWS {
 		String __nome = requisicao.queryParams("N");
 		String __senha = requisicao.queryParams("S");
 		Usuario __usuario = _usuarioBean.logar(__nome, __senha);
-		if (__usuario == null)
-			return UtilRequisicaoEResposta.reponderFalha(resposta, __usuario);
-		return UtilRequisicaoEResposta.responderSucesso(resposta, __usuario);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, __usuario);
 	}
 }
