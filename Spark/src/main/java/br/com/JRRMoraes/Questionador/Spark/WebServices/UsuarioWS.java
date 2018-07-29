@@ -19,7 +19,7 @@ public class UsuarioWS {
 
 	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
-	private static UsuarioBean _usuarioBean = new UsuarioBean();
+	private static UsuarioBean usuarioBean = new UsuarioBean();
 
 
 	public static void imporCaminhos() {
@@ -44,31 +44,31 @@ public class UsuarioWS {
 
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.consultarPorId(__id));
+		long id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, usuarioBean.consultarPorId(id));
 	};
 
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
-		Usuario __usuario = _usuarioBean.novo();
-		return _usuarioBean.salvar(__usuario);
+		Usuario usuario = usuarioBean.novo();
+		return usuarioBean.salvar(usuario);
 	};
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, usuarioBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _usuarioBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, usuarioBean.consultarTodos());
 	}
 
 
 	private static String consultarLogin(Request requisicao, Response resposta) {
-		String __nome = requisicao.queryParams("N");
-		String __senha = requisicao.queryParams("S");
-		Usuario __usuario = _usuarioBean.logar(__nome, __senha);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, __usuario);
+		String nome = requisicao.queryParams("N");
+		String senha = requisicao.queryParams("S");
+		Usuario usuario = usuarioBean.logar(nome, senha);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, usuario);
 	}
 }

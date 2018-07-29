@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.EventoResposta;
 @Model
 public class EventoRespostaBean {
 
-	private EventoRespostaDAO _eventoRespostaDao = new EventoRespostaDAO();
+	private EventoRespostaDAO eventoRespostaDao = new EventoRespostaDAO();
 
 
 	public EventoResposta novo() {
-		return _eventoRespostaDao.novo();
+		return eventoRespostaDao.novo();
 	}
 
 
 	public boolean salvar(EventoResposta eventoResposta) {
-		return _eventoRespostaDao.salvar(eventoResposta);
+		return eventoRespostaDao.salvar(eventoResposta);
 	}
 
 
 	public EventoResposta consultarPorId(Long id) {
-		return _eventoRespostaDao.consultarPorId(id);
+		return eventoRespostaDao.consultarPorId(id);
 	}
 
 
 	public List<EventoResposta> consultarTodos() {
-		return _eventoRespostaDao.consultarTodos();
+		return eventoRespostaDao.consultarTodos();
 	}
 }

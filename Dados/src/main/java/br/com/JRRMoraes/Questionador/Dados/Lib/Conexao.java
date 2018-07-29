@@ -8,16 +8,25 @@ import javax.persistence.Persistence;
 
 public class Conexao {
 
-	private static EntityManagerFactory _fabrica = Conexao.instanciarFabrica();
+	private static EntityManagerFactory fabrica;
+
+	// = Conexao.instanciarFabrica();
 
 
-	private static EntityManagerFactory instanciarFabrica() {
-		return Persistence.createEntityManagerFactory("questionador");
+	private static EntityManagerFactory obterFabrica() {
+		if ((fabrica == null) || (!fabrica.isOpen()))
+			fabrica = Persistence.createEntityManagerFactory("questionador");
+		return fabrica;
 	}
 
 
 	public static EntityManager obterGerenciador() {
-		EntityManager __gerenciador = _fabrica.createEntityManager();
-		return __gerenciador;
+		EntityManager gerenciador = obterFabrica().createEntityManager();
+		return gerenciador;
+	}
+
+
+	public static void fecharFabrica() {
+		obterFabrica().close();
 	}
 }

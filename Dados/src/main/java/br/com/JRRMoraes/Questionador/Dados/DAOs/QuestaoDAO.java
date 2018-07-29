@@ -31,6 +31,6 @@ public class QuestaoDAO extends DAOBase<Questao, Long> {
 
 
 	public List<Questao> consultarTodos() {
-		return internoCriarQuery("FROM Questao q ORDER BY q.indice").getResultList();
+		return criarQuery("FROM Questao q ORDER BY q.indice").getResultList();
 	}
 }

@@ -31,6 +31,6 @@ public class EventoQuestionarioDAO extends DAOBase<EventoQuestionario, Long> {
 
 
 	public List<EventoQuestionario> consultarTodos() {
-		return internoCriarQuery("FROM EventoQuestionario eq").getResultList();
+		return criarQuery("FROM EventoQuestionario eq").getResultList();
 	}
 }

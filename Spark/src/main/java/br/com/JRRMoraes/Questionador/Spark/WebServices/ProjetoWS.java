@@ -19,7 +19,7 @@ public class ProjetoWS {
 
 	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
-	private static ProjetoBean _projetoBean = new ProjetoBean();
+	private static ProjetoBean projetoBean = new ProjetoBean();
 
 
 	public static void imporCaminhos() {
@@ -42,22 +42,22 @@ public class ProjetoWS {
 
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.consultarPorId(__id));
+		long id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoBean.consultarPorId(id));
 	};
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
-		Projeto __projeto = _projetoBean.novo();
-		return _projetoBean.salvar(__projeto);
+		Projeto projeto = projetoBean.novo();
+		return projetoBean.salvar(projeto);
 	};
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoBean.consultarTodos());
 	}
 }

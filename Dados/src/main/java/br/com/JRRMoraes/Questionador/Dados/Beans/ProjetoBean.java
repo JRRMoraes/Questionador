@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Projeto;
 @Model
 public class ProjetoBean {
 
-	private ProjetoDAO _projetoDao = new ProjetoDAO();
+	private ProjetoDAO projetoDao = new ProjetoDAO();
 
 
 	public Projeto novo() {
-		return _projetoDao.novo();
+		return projetoDao.novo();
 	}
 
 
 	public boolean salvar(Projeto projeto) {
-		return _projetoDao.salvar(projeto);
+		return projetoDao.salvar(projeto);
 	}
 
 
 	public Projeto consultarPorId(Long id) {
-		return _projetoDao.consultarPorId(id);
+		return projetoDao.consultarPorId(id);
 	}
 
 
 	public List<Projeto> consultarTodos() {
-		return _projetoDao.consultarTodos();
+		return projetoDao.consultarTodos();
 	}
 }

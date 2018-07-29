@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.EventoQuestionario;
 @Model
 public class EventoQuestionarioBean {
 
-	private EventoQuestionarioDAO _eventoQuestionarioDao = new EventoQuestionarioDAO();
+	private EventoQuestionarioDAO eventoQuestionarioDao = new EventoQuestionarioDAO();
 
 
 	public EventoQuestionario novo() {
-		return _eventoQuestionarioDao.novo();
+		return eventoQuestionarioDao.novo();
 	}
 
 
 	public boolean salvar(EventoQuestionario eventoQuestionario) {
-		return _eventoQuestionarioDao.salvar(eventoQuestionario);
+		return eventoQuestionarioDao.salvar(eventoQuestionario);
 	}
 
 
 	public EventoQuestionario consultarPorId(Long id) {
-		return _eventoQuestionarioDao.consultarPorId(id);
+		return eventoQuestionarioDao.consultarPorId(id);
 	}
 
 
 	public List<EventoQuestionario> consultarTodos() {
-		return _eventoQuestionarioDao.consultarTodos();
+		return eventoQuestionarioDao.consultarTodos();
 	}
 }

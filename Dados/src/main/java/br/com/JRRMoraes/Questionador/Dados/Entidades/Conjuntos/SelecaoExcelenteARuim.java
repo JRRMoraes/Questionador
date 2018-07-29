@@ -9,15 +9,15 @@ public enum SelecaoExcelenteARuim {
 	EXCELENTE("Excelente");
 
 
-	private String _nome;
+	private String nome;
 
 
 	private SelecaoExcelenteARuim(String nome) {
-		_nome = nome;
+		this.nome = nome;
 	}
 
 
 	public String getNome() {
-		return _nome;
+		return nome;
 	}
 }

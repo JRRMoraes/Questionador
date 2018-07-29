@@ -19,7 +19,7 @@ public class ReviewWS {
 
 	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
-	private static ReviewBean _reviewBean = new ReviewBean();
+	private static ReviewBean reviewBean = new ReviewBean();
 
 
 	public static void imporCaminhos() {
@@ -42,23 +42,23 @@ public class ReviewWS {
 
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.consultarPorId(__id));
+		long id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, reviewBean.consultarPorId(id));
 	};
 
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
-		Review __review = _reviewBean.novo();
-		return _reviewBean.salvar(__review);
+		Review review = reviewBean.novo();
+		return reviewBean.salvar(review);
 	};
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, reviewBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _reviewBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, reviewBean.consultarTodos());
 	}
 }

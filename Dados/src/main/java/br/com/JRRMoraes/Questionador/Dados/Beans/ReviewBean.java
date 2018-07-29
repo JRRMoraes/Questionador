@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Review;
 @Model
 public class ReviewBean {
 
-	private ReviewDAO _reviewDao = new ReviewDAO();
+	private ReviewDAO reviewDao = new ReviewDAO();
 
 
 	public Review novo() {
-		return _reviewDao.novo();
+		return reviewDao.novo();
 	}
 
 
 	public boolean salvar(Review review) {
-		return _reviewDao.salvar(review);
+		return reviewDao.salvar(review);
 	}
 
 
 	public Review consultarPorId(Long id) {
-		return _reviewDao.consultarPorId(id);
+		return reviewDao.consultarPorId(id);
 	}
 
 
 	public List<Review> consultarTodos() {
-		return _reviewDao.consultarTodos();
+		return reviewDao.consultarTodos();
 	}
 }

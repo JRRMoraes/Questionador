@@ -10,30 +10,30 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Usuario;
 @Model
 public class UsuarioBean {
 
-	private UsuarioDAO _usuarioDao = new UsuarioDAO();
+	private UsuarioDAO usuarioDao = new UsuarioDAO();
 
 
 	public Usuario novo() {
-		return _usuarioDao.novo();
+		return usuarioDao.novo();
 	}
 
 
 	public boolean salvar(Usuario usuario) {
-		return _usuarioDao.salvar(usuario);
+		return usuarioDao.salvar(usuario);
 	}
 
 
 	public Usuario consultarPorId(Long id) {
-		return _usuarioDao.consultarPorId(id);
+		return usuarioDao.consultarPorId(id);
 	}
 
 
 	public Usuario logar(String nome, String senha) {
-		return _usuarioDao.logar(nome, senha);
+		return usuarioDao.logar(nome, senha);
 	}
 
 
 	public List<Usuario> consultarTodos() {
-		return _usuarioDao.consultarTodos();
+		return usuarioDao.consultarTodos();
 	}
 }

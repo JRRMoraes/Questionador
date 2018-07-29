@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Questao;
 @Model
 public class QuestaoBean {
 
-	private QuestaoDAO _questaoDao = new QuestaoDAO();
+	private QuestaoDAO questaoDao = new QuestaoDAO();
 
 
 	public Questao novo() {
-		return _questaoDao.novo();
+		return questaoDao.novo();
 	}
 
 
 	public boolean salvar(Questao questao) {
-		return _questaoDao.salvar(questao);
+		return questaoDao.salvar(questao);
 	}
 
 
 	public Questao consultarPorId(Long id) {
-		return _questaoDao.consultarPorId(id);
+		return questaoDao.consultarPorId(id);
 	}
 
 
 	public List<Questao> consultarTodos() {
-		return _questaoDao.consultarTodos();
+		return questaoDao.consultarTodos();
 	}
 }

@@ -31,6 +31,6 @@ public class QuestionarioDAO extends DAOBase<Questionario, Long> {
 
 
 	public List<Questionario> consultarTodos() {
-		return internoCriarQuery("FROM Questionario q ORDER BY q.nome").getResultList();
+		return criarQuery("FROM Questionario q ORDER BY q.nome").getResultList();
 	}
 }

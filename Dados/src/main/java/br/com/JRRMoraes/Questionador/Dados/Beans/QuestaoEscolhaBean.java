@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.QuestaoEscolha;
 @Model
 public class QuestaoEscolhaBean {
 
-	private QuestaoEscolhaDAO _questaoEscolhaDao = new QuestaoEscolhaDAO();
+	private QuestaoEscolhaDAO questaoEscolhaDao = new QuestaoEscolhaDAO();
 
 
 	public QuestaoEscolha novo() {
-		return _questaoEscolhaDao.novo();
+		return questaoEscolhaDao.novo();
 	}
 
 
 	public boolean salvar(QuestaoEscolha questaoEscolha) {
-		return _questaoEscolhaDao.salvar(questaoEscolha);
+		return questaoEscolhaDao.salvar(questaoEscolha);
 	}
 
 
 	public QuestaoEscolha consultarPorId(Long id) {
-		return _questaoEscolhaDao.consultarPorId(id);
+		return questaoEscolhaDao.consultarPorId(id);
 	}
 
 
 	public List<QuestaoEscolha> consultarTodos() {
-		return _questaoEscolhaDao.consultarTodos();
+		return questaoEscolhaDao.consultarTodos();
 	}
 }

@@ -7,15 +7,15 @@ public enum TipoQuestaoEscolha {
 	CORRETA((byte) 1),
 	IRRELEVANTE((byte) 2);
 
-	private byte _id;
+	private byte id;
 
 
 	private TipoQuestaoEscolha(byte id) {
-		_id = id;
+		this.id = id;
 	}
 
 
 	public byte getId() {
-		return _id;
+		return id;
 	}
 }

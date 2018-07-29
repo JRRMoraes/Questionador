@@ -31,6 +31,6 @@ public class EventoPresencaDAO extends DAOBase<EventoPresenca, Long> {
 
 
 	public List<EventoPresenca> consultarTodos() {
-		return internoCriarQuery("FROM EventoPresenca ep").getResultList();
+		return criarQuery("FROM EventoPresenca ep").getResultList();
 	}
 }

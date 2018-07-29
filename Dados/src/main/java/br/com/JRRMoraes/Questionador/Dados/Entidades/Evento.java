@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import br.com.JRRMoraes.Questionador.Dados.Entidades.Conjuntos.TipoEvento;
+import br.com.JRRMoraes.Questionador.Dados.Lib.Conversores;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
 
 
@@ -41,6 +42,9 @@ public class Evento implements Serializable, IEntidade<Long> {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataCriacao;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar dataAbertura;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataEncerramento;
@@ -106,6 +110,16 @@ public class Evento implements Serializable, IEntidade<Long> {
 	}
 
 
+	public Calendar getDataAbertura() {
+		return dataAbertura;
+	}
+
+
+	public void setDataAbertura(Calendar dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
+
 	public Calendar getDataEncerramento() {
 		return dataEncerramento;
 	}
@@ -129,9 +143,11 @@ public class Evento implements Serializable, IEntidade<Long> {
 				+ ", tipoEvento="
 				+ tipoEvento
 				+ ", dataCriacao="
-				+ dataCriacao
+				+ Conversores.estenderCalendar(dataCriacao)
+				+ ", dataAbertura="
+				+ Conversores.estenderCalendar(dataAbertura)
 				+ ", dataEncerramento="
-				+ dataEncerramento
+				+ Conversores.estenderCalendar(dataEncerramento)
 				+ "]";
 	}
 }

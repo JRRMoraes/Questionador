@@ -12,7 +12,7 @@ public class Conversor {
 
 
 	public static <E> E jsonParaEntidade(Class<E> classe, String json) {
-		E __entidade = new Gson().fromJson(json, classe);
-		return __entidade;
+		E entidade = new Gson().fromJson(json, classe);
+		return entidade;
 	}
 }

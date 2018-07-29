@@ -13,11 +13,11 @@ import spark.servlet.SparkApplication;
 
 public class AplicativoSpark implements SparkApplication {
 
-	private final Resource _recurso;
+	private final Resource recurso;
 
 
 	public AplicativoSpark(Resource recurso) {
-		_recurso = recurso;
+		this.recurso = recurso;
 	}
 
 
@@ -36,14 +36,4 @@ public class AplicativoSpark implements SparkApplication {
 
 		Ajustes.imporAjustesFinais();
 	}
-
-
-	// Route map(Converter c) {
-	// return (req, res) -> c.convert(req, res).handle(req, res);
-	// }
-	//
-	// private interface Converter {
-	// public ResponseCreator convert(Request req, Response res);
-	// }
 }
-

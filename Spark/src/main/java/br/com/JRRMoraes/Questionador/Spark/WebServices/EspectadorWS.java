@@ -19,7 +19,7 @@ public class EspectadorWS {
 
 	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
-	private static EspectadorBean _espectadorBean = new EspectadorBean();
+	private static EspectadorBean espectadorBean = new EspectadorBean();
 
 
 	public static void ImporCaminhos() {
@@ -44,28 +44,28 @@ public class EspectadorWS {
 
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarPorId(__id));
+		long id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, espectadorBean.consultarPorId(id));
 	};
 
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
-		Espectador __espectador = _espectadorBean.novo();
-		return _espectadorBean.salvar(__espectador);
+		Espectador espectador = espectadorBean.novo();
+		return espectadorBean.salvar(espectador);
 	};
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, espectadorBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, espectadorBean.consultarTodos());
 	}
 
 
 	private static String consultarAbertos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _espectadorBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, espectadorBean.consultarTodos());
 	}
 }

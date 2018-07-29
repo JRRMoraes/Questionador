@@ -49,76 +49,76 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Conjuntos.TipoQuestaoEscolh
 public class ConteudoB {
 
 	public static List<Class<?>> listarClassesDeConjuntos() {
-		ArrayList<Class<?>> __lista = new ArrayList<Class<?>>();
-		__lista.add(ObrigacaoQuestao.class);
-		__lista.add(SelecaoExcelenteARuim.class);
-		__lista.add(TipoEvento.class);
-		__lista.add(TipoQuestao.class);
-		__lista.add(TipoQuestaoEscolha.class);
-		return __lista;
+		ArrayList<Class<?>> lista = new ArrayList<Class<?>>();
+		lista.add(ObrigacaoQuestao.class);
+		lista.add(SelecaoExcelenteARuim.class);
+		lista.add(TipoEvento.class);
+		lista.add(TipoQuestao.class);
+		lista.add(TipoQuestaoEscolha.class);
+		return lista;
 	}
 
 
 	public static List<Class<?>> listarClassesDeEntidades() {
-		ArrayList<Class<?>> __lista = new ArrayList<Class<?>>();
-		__lista.add(Espectador.class);
-		__lista.add(Evento.class);
-		__lista.add(EventoPresenca.class);
-		__lista.add(EventoQuestionario.class);
-		__lista.add(EventoResposta.class);
-		__lista.add(Projeto.class);
-		__lista.add(ProjetoVersao.class);
-		__lista.add(Questao.class);
-		__lista.add(QuestaoEscolha.class);
-		__lista.add(Questionario.class);
-		__lista.add(Review.class);
-		__lista.add(Usuario.class);
-		return __lista;
+		ArrayList<Class<?>> lista = new ArrayList<Class<?>>();
+		lista.add(Espectador.class);
+		lista.add(Evento.class);
+		lista.add(EventoPresenca.class);
+		lista.add(EventoQuestionario.class);
+		lista.add(EventoResposta.class);
+		lista.add(Projeto.class);
+		lista.add(ProjetoVersao.class);
+		lista.add(Questao.class);
+		lista.add(QuestaoEscolha.class);
+		lista.add(Questionario.class);
+		lista.add(Review.class);
+		lista.add(Usuario.class);
+		return lista;
 	}
 
 
 	public static List<Class<?>> listarClassesDeDAOs() {
-		ArrayList<Class<?>> __lista = new ArrayList<Class<?>>();
-		__lista.add(EspectadorDAO.class);
-		__lista.add(EventoDAO.class);
-		__lista.add(EventoPresencaDAO.class);
-		__lista.add(EventoQuestionarioDAO.class);
-		__lista.add(EventoRespostaDAO.class);
-		__lista.add(ProjetoDAO.class);
-		__lista.add(ProjetoVersaoDAO.class);
-		__lista.add(QuestaoDAO.class);
-		__lista.add(QuestaoEscolhaDAO.class);
-		__lista.add(QuestionarioDAO.class);
-		__lista.add(ReviewDAO.class);
-		__lista.add(UsuarioDAO.class);
-		return __lista;
+		ArrayList<Class<?>> lista = new ArrayList<Class<?>>();
+		lista.add(EspectadorDAO.class);
+		lista.add(EventoDAO.class);
+		lista.add(EventoPresencaDAO.class);
+		lista.add(EventoQuestionarioDAO.class);
+		lista.add(EventoRespostaDAO.class);
+		lista.add(ProjetoDAO.class);
+		lista.add(ProjetoVersaoDAO.class);
+		lista.add(QuestaoDAO.class);
+		lista.add(QuestaoEscolhaDAO.class);
+		lista.add(QuestionarioDAO.class);
+		lista.add(ReviewDAO.class);
+		lista.add(UsuarioDAO.class);
+		return lista;
 	}
 
 
 	public static List<Class<?>> listarClassesDeBeans() {
-		ArrayList<Class<?>> __lista = new ArrayList<Class<?>>();
-		__lista.add(EspectadorBean.class);
-		__lista.add(EventoBean.class);
-		__lista.add(EventoPresencaBean.class);
-		__lista.add(EventoQuestionarioBean.class);
-		__lista.add(EventoRespostaBean.class);
-		__lista.add(ProjetoBean.class);
-		__lista.add(ProjetoVersaoBean.class);
-		__lista.add(QuestaoBean.class);
-		__lista.add(QuestaoEscolhaBean.class);
-		__lista.add(QuestionarioBean.class);
-		__lista.add(ReviewBean.class);
-		__lista.add(UsuarioBean.class);
-		return __lista;
+		ArrayList<Class<?>> lista = new ArrayList<Class<?>>();
+		lista.add(EspectadorBean.class);
+		lista.add(EventoBean.class);
+		lista.add(EventoPresencaBean.class);
+		lista.add(EventoQuestionarioBean.class);
+		lista.add(EventoRespostaBean.class);
+		lista.add(ProjetoBean.class);
+		lista.add(ProjetoVersaoBean.class);
+		lista.add(QuestaoBean.class);
+		lista.add(QuestaoEscolhaBean.class);
+		lista.add(QuestionarioBean.class);
+		lista.add(ReviewBean.class);
+		lista.add(UsuarioBean.class);
+		return lista;
 	}
 
 
 	public static List<Class<?>> listarTodasAsClasses() {
-		ArrayList<Class<?>> __lista = new ArrayList<Class<?>>();
-		__lista.addAll(listarClassesDeConjuntos());
-		__lista.addAll(listarClassesDeEntidades());
-		// __lista.addAll(listarClassesDeDAOs());
-		// __lista.addAll(listarClassesDeBeans());
-		return __lista;
+		ArrayList<Class<?>> lista = new ArrayList<Class<?>>();
+		lista.addAll(listarClassesDeConjuntos());
+		lista.addAll(listarClassesDeEntidades());
+		// lista.addAll(listarClassesDeDAOs());
+		// lista.addAll(listarClassesDeBeans());
+		return lista;
 	}
 }

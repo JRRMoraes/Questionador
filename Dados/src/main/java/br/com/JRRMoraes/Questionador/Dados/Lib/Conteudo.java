@@ -47,41 +47,41 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Conjuntos.TipoQuestaoEscolh
 public class Conteudo {
 
 	public static Class[] listarClassesDeConjuntos() {
-		Class[] __lista = {
+		Class[] lista = {
 				ObrigacaoQuestao.class, SelecaoExcelenteARuim.class, TipoEvento.class, TipoQuestao.class,
 				TipoQuestaoEscolha.class
 		};
-		return __lista;
+		return lista;
 	}
 
 
 	public static Class[] listarClassesDeEntidades() {
-		Class[] __lista = {
+		Class[] lista = {
 				Espectador.class, Evento.class, EventoPresenca.class, EventoQuestionario.class, EventoResposta.class,
 				Projeto.class, ProjetoVersao.class, Questao.class, QuestaoEscolha.class, Questionario.class,
 				Review.class, Usuario.class
 		};
-		return __lista;
+		return lista;
 	}
 
 
 	public static Class[] listarClassesDeDAOs() {
-		Class[] __lista = {
+		Class[] lista = {
 				EspectadorDAO.class, EventoDAO.class, EventoPresencaDAO.class, EventoQuestionarioDAO.class,
 				EventoRespostaDAO.class, ProjetoDAO.class, ProjetoVersaoDAO.class, QuestaoDAO.class,
 				QuestaoEscolhaDAO.class, QuestionarioDAO.class, ReviewDAO.class, UsuarioDAO.class
 		};
-		return __lista;
+		return lista;
 	}
 
 
 	public static Class[] listarClassesDeBeans() {
-		Class[] __lista = {
+		Class[] lista = {
 				EspectadorBean.class, EventoBean.class, EventoPresencaBean.class, EventoQuestionarioBean.class,
 				EventoRespostaBean.class, ProjetoBean.class, ProjetoVersaoBean.class, QuestaoBean.class,
 				QuestaoEscolhaBean.class, QuestionarioBean.class, ReviewBean.class, UsuarioBean.class
 		};
-		return __lista;
+		return lista;
 	}
 
 
@@ -93,9 +93,8 @@ public class Conteudo {
 	 * listarClassesDeConjuntos()); , listarClassesDeEntidades(),
 	 * listarClassesDeDAOs(), listarClassesDeBeans());
 	 * 
-	 * Class[] __lista = { listarClassesDeConjuntos(),
-	 * listarClassesDeEntidades(), listarClassesDeDAOs(), listarClassesDeBeans()
-	 * };return __lista;
+	 * Class[] lista = { listarClassesDeConjuntos(), listarClassesDeEntidades(),
+	 * listarClassesDeDAOs(), listarClassesDeBeans() };return lista;
 	 * 
 	 * };
 	 */

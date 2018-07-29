@@ -3,46 +3,57 @@ package br.com.JRRMoraes.Questionador.Dados.Lib;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
 
 
 public class DAOBase<E extends IEntidade<I>, I> {
 
-	private Class<E> _classe;
+	private Class<E> classe;
 
 	// @PersistenceContext
-	private EntityManager _gerenciador;
+	private EntityManager gerenciador;
 
 
 	public DAOBase(Class<E> classe) {
-		_classe = classe;
-		_gerenciador = Conexao.obterGerenciador();
+		this.classe = classe;
+		this.gerenciador = Conexao.obterGerenciador();
 	}
 
 
 	protected EntityManager obterGerenciador() {
-		return _gerenciador;
+		return gerenciador;
 	}
 
 
 	protected boolean internoSalvar(E entidade) {
-		if (!_gerenciador.getTransaction().isActive())
-			_gerenciador.getTransaction().begin();
+		if (!gerenciador.getTransaction().isActive())
+			gerenciador.getTransaction().begin();
 		if (entidade.getId() == null)
-			_gerenciador.persist(entidade);
+			gerenciador.persist(entidade);
 		else
-			_gerenciador.merge(entidade);
-		_gerenciador.flush();
-		_gerenciador.getTransaction().commit();
+			gerenciador.merge(entidade);
+		gerenciador.flush();
+		gerenciador.getTransaction().commit();
 		return true;
 	}
 
 
 	protected E internoConsultarPorId(I id) {
-		return _gerenciador.find(_classe, id);
+		return gerenciador.find(classe, id);
 	}
 
 
-	public TypedQuery<E> internoCriarQuery(String query) {
-		return obterGerenciador().createQuery(query, _classe);
+	public TypedQuery<E> criarQuery(String query) {
+		return obterGerenciador().createQuery(query, classe);
+	}
+
+
+	public CriteriaBuilder obterCriteriaBuilder() {
+		return obterGerenciador().getCriteriaBuilder();
+	}
+
+
+	public Consulta<E> criarConsulta() {
+		return new Consulta<E>(classe, obterGerenciador());
 	}
 }

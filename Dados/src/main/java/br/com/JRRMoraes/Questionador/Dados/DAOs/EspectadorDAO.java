@@ -31,6 +31,6 @@ public class EspectadorDAO extends DAOBase<Espectador, Long> {
 
 
 	public List<Espectador> consultarTodos() {
-		return internoCriarQuery("FROM Espectador e ORDER BY e.nome").getResultList();
+		return criarQuery("FROM Espectador e ORDER BY e.nome").getResultList();
 	}
 }

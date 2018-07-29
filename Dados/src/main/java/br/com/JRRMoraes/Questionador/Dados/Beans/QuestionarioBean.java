@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Questionario;
 @Model
 public class QuestionarioBean {
 
-	private QuestionarioDAO _questionarioDao = new QuestionarioDAO();
+	private QuestionarioDAO questionarioDao = new QuestionarioDAO();
 
 
 	public Questionario novo() {
-		return _questionarioDao.novo();
+		return questionarioDao.novo();
 	}
 
 
 	public boolean salvar(Questionario questionario) {
-		return _questionarioDao.salvar(questionario);
+		return questionarioDao.salvar(questionario);
 	}
 
 
 	public Questionario consultarPorId(Long id) {
-		return _questionarioDao.consultarPorId(id);
+		return questionarioDao.consultarPorId(id);
 	}
 
 
 	public List<Questionario> consultarTodos() {
-		return _questionarioDao.consultarTodos();
+		return questionarioDao.consultarTodos();
 	}
 }

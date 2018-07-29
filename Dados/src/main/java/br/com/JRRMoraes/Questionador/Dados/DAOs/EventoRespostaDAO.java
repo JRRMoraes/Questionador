@@ -31,6 +31,6 @@ public class EventoRespostaDAO extends DAOBase<EventoResposta, Long> {
 
 
 	public List<EventoResposta> consultarTodos() {
-		return internoCriarQuery("FROM FROM EventoResposta er ORDER BY er.nome").getResultList();
+		return criarQuery("FROM FROM EventoResposta er ORDER BY er.nome").getResultList();
 	}
 }

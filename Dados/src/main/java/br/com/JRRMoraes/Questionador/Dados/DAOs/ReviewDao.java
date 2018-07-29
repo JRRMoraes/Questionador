@@ -31,6 +31,6 @@ public class ReviewDAO extends DAOBase<Review, Long> {
 
 
 	public List<Review> consultarTodos() {
-		return internoCriarQuery("FROM Review r ORDER BY r.nome").getResultList();
+		return criarQuery("FROM Review r ORDER BY r.nome").getResultList();
 	}
 }

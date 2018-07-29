@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.Espectador;
 @Model
 public class EspectadorBean {
 
-	private EspectadorDAO _espectadorDao = new EspectadorDAO();
+	private EspectadorDAO espectadorDao = new EspectadorDAO();
 
 
 	public Espectador novo() {
-		return _espectadorDao.novo();
+		return espectadorDao.novo();
 	}
 
 
 	public boolean salvar(Espectador espectador) {
-		return _espectadorDao.salvar(espectador);
+		return espectadorDao.salvar(espectador);
 	}
 
 
 	public Espectador consultarPorId(Long id) {
-		return _espectadorDao.consultarPorId(id);
+		return espectadorDao.consultarPorId(id);
 	}
 
 
 	public List<Espectador> consultarTodos() {
-		return _espectadorDao.consultarTodos();
+		return espectadorDao.consultarTodos();
 	}
 }

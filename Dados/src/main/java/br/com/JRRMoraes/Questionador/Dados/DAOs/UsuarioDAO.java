@@ -3,8 +3,9 @@ package br.com.JRRMoraes.Questionador.Dados.DAOs;
 
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.persistence.TypedQuery;
+import javax.persistence.criteria.Path;
 import br.com.JRRMoraes.Questionador.Dados.Entidades.Usuario;
+import br.com.JRRMoraes.Questionador.Dados.Lib.Consulta;
 import br.com.JRRMoraes.Questionador.Dados.Lib.DAOBase;
 
 
@@ -32,18 +33,16 @@ public class UsuarioDAO extends DAOBase<Usuario, Long> {
 
 
 	public List<Usuario> consultarTodos() {
-		return internoCriarQuery("FROM Usuario u ORDER BY u.nome").getResultList();
+		return criarQuery("FROM Usuario u ORDER BY u.nome").getResultList();
 	}
 
 
 	public Usuario logar(String nome, String senha) {
-		try {
-			TypedQuery<Usuario> __query = internoCriarQuery("FROM Usuario u WHERE u.nome = :nome AND u.senha = :senha");
-			__query.setParameter(":nome", nome);
-			__query.setParameter(":senha", senha);
-			return __query.getSingleResult();
-		} catch (Exception e) {
-			return null;
-		}
+		Consulta<Usuario> consulta = criarConsulta();
+		Path<String> pathNome = consulta.raiz.<String> get("nome");
+		consulta.adicionarPredicado(consulta.construtor.equal(pathNome, nome));
+		Path<String> pathSenha = consulta.raiz.<String> get("senha");
+		consulta.adicionarPredicado(consulta.construtor.equal(pathSenha, senha));
+		return consulta.criarTypedQuery().getSingleResult();
 	}
 }

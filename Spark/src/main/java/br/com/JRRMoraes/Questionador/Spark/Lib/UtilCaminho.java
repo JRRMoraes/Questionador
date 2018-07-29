@@ -23,15 +23,15 @@ public class UtilCaminho {
 
 
 	public static String parametroFuncao(Request requisicao) {
-		String __parametro = requisicao.queryParams(PARAM_FUNCAO);
-		return (__parametro != null) ? __parametro : "";
+		String parametro = requisicao.queryParams(PARAM_FUNCAO);
+		return (parametro != null) ? parametro : "";
 	}
 
 
 	public static Long parametroLong(Request requisicao, String parametro) {
 		try {
-			String __valor = requisicao.params(parametro);
-			return Long.parseLong(__valor, 10);
+			String valor = requisicao.params(parametro);
+			return Long.parseLong(valor, 10);
 		} catch (Exception e) {
 			return 0l;
 		}

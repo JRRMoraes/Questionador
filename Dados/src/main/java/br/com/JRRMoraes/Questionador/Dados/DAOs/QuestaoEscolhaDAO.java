@@ -31,6 +31,6 @@ public class QuestaoEscolhaDAO extends DAOBase<QuestaoEscolha, Long> {
 
 
 	public List<QuestaoEscolha> consultarTodos() {
-		return internoCriarQuery("FROM QuestaoEscolha qe").getResultList();
+		return criarQuery("FROM QuestaoEscolha qe").getResultList();
 	}
 }

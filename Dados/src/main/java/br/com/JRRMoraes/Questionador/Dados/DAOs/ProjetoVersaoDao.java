@@ -31,6 +31,6 @@ public class ProjetoVersaoDAO extends DAOBase<ProjetoVersao, Long> {
 
 
 	public List<ProjetoVersao> consultarTodos() {
-		return internoCriarQuery("FROM ProjetoVersao pv ORDER BY pv.nome").getResultList();
+		return criarQuery("FROM ProjetoVersao pv ORDER BY pv.nome").getResultList();
 	}
 }

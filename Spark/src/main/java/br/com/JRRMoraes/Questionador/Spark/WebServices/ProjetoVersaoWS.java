@@ -19,7 +19,7 @@ public class ProjetoVersaoWS {
 
 	private final static String CAMINHO_ID = UtilCaminho.caminhoId(CAMINHO_RAIZ);
 
-	private static ProjetoVersaoBean _projetoVersaoBean = new ProjetoVersaoBean();
+	private static ProjetoVersaoBean projetoVersaoBean = new ProjetoVersaoBean();
 
 
 	public static void ImporCaminhos() {
@@ -42,23 +42,23 @@ public class ProjetoVersaoWS {
 
 
 	private static Route rotaConsultaPorId = (Request requisicao, Response resposta) -> {
-		long __id = UtilCaminho.parametroId(requisicao);
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.consultarPorId(__id));
+		long id = UtilCaminho.parametroId(requisicao);
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoVersaoBean.consultarPorId(id));
 	};
 
 
 	private static Route rotaSalva = (Request requisicao, Response resposta) -> {
-		ProjetoVersao __projetoVersao = _projetoVersaoBean.novo();
-		return _projetoVersaoBean.salvar(__projetoVersao);
+		ProjetoVersao projetoVersao = projetoVersaoBean.novo();
+		return projetoVersaoBean.salvar(projetoVersao);
 	};
 
 
 	private static String consultarNovo(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.novo());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoVersaoBean.novo());
 	}
 
 
 	private static String consultarTodos(Request requisicao, Response resposta) {
-		return UtilRequisicaoEResposta.reponderEntidade(resposta, _projetoVersaoBean.consultarTodos());
+		return UtilRequisicaoEResposta.reponderEntidade(resposta, projetoVersaoBean.consultarTodos());
 	}
 }

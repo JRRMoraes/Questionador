@@ -10,25 +10,25 @@ import br.com.JRRMoraes.Questionador.Dados.Entidades.EventoPresenca;
 @Model
 public class EventoPresencaBean {
 
-	private EventoPresencaDAO _eventoPresencaDao = new EventoPresencaDAO();
+	private EventoPresencaDAO eventoPresencaDao = new EventoPresencaDAO();
 
 
 	public EventoPresenca novo() {
-		return _eventoPresencaDao.novo();
+		return eventoPresencaDao.novo();
 	}
 
 
 	public boolean salvar(EventoPresenca eventoPresenca) {
-		return _eventoPresencaDao.salvar(eventoPresenca);
+		return eventoPresencaDao.salvar(eventoPresenca);
 	}
 
 
 	public EventoPresenca consultarPorId(Long id) {
-		return _eventoPresencaDao.consultarPorId(id);
+		return eventoPresencaDao.consultarPorId(id);
 	}
 
 
 	public List<EventoPresenca> consultarTodos() {
-		return _eventoPresencaDao.consultarTodos();
+		return eventoPresencaDao.consultarTodos();
 	}
 }

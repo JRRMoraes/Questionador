@@ -35,13 +35,15 @@ public class RespostaDoTeste {
 
 	public static RespostaDoTeste requerer(String metodo, String caminho) {
 		try {
-			URL __url = new URL("http://localhost:9999" + caminho);
-			HttpURLConnection __conexao = (HttpURLConnection) __url.openConnection();
-			__conexao.setRequestMethod(metodo);
-			__conexao.setDoOutput(true);
-			__conexao.connect();
-			String __corpo = IOUtils.toString(__conexao.getInputStream());
-			return new RespostaDoTeste(__conexao.getResponseCode(), __corpo);
+			URL url = new URL("http://localhost:9999" + caminho);
+			HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+			conexao.setRequestMethod(metodo);
+			conexao.setDoOutput(true);
+			conexao.connect();
+			String corpo = null;
+			if (conexao.getInputStream() != null)
+				corpo = IOUtils.toString(conexao.getInputStream());
+			return new RespostaDoTeste(conexao.getResponseCode(), corpo);
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail("Falha ao enviar requisicao: " + e.getMessage());
