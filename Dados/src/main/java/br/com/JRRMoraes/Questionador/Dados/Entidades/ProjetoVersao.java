@@ -2,12 +2,13 @@ package br.com.JRRMoraes.Questionador.Dados.Entidades;
 
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import br.com.JRRMoraes.Questionador.Dados.Lib.IEntidade;
 
 
@@ -24,7 +25,7 @@ public class ProjetoVersao implements Serializable, IEntidade<Long> {
 	@Column(length = 50)
 	private String nome;
 
-	@OneToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Projeto projeto;
 
 
